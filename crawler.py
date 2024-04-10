@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 import requests
 from html.parser import HTMLParser
 from urllib.parse import urljoin
