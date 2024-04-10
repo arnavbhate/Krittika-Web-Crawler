@@ -40,6 +40,21 @@ def get_links(url: str, links: list) -> None:
     parser = Parser()
     parser.feed(content)
 
+    # Get links
+    for link in parser.links:
+        if link.startswith("http"):
+            resolved_link = link
+        else:
+            resolved_link = urljoin(url, link)
+        if resolved_link not in links:
+            links.append(resolved_link)
+    final_length = len(links)
+
+    # Recursively get links (local only)
+    for link in links[initial_length:final_length]:
+        if link.startswith("https://krittikaiitb.github.io/"):
+            get_links(link, links)
+
 
 if __name__ == "__main__":
     links = []
