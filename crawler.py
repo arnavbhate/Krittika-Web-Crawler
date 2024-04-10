@@ -88,6 +88,5 @@ def get_links(url: str, links: list) -> None:
 if __name__ == "__main__":
     links = [[website, "True"]]
     get_links(links[0][0], links)
-    print("Links found:")
     for link in links:
         print(link[0])
